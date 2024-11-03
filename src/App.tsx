@@ -110,6 +110,11 @@ function App() {
               />
             </ListItemIcon>
             <ListItemText
+              primaryTypographyProps={{
+                style: {
+                  overflowWrap: "anywhere",
+                },
+              }}
               data-testid="list-item"
               primary={item.value}
               className={`py-1 ${
