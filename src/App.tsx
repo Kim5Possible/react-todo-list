@@ -25,7 +25,11 @@ function App() {
     if (!inputValue) return;
     setList((prevList) => [
       ...prevList,
-      { value: inputValue, index: crypto.randomUUID(), isCompleted: false },
+      {
+        value: inputValue,
+        index: Math.random().toString(36).slice(2, 9),
+        isCompleted: false,
+      },
     ]);
     setInputValue("");
   };
@@ -106,6 +110,7 @@ function App() {
               />
             </ListItemIcon>
             <ListItemText
+              data-testid="list-item"
               primary={item.value}
               className={`py-1 ${
                 item.isCompleted && "line-through opacity-40"
