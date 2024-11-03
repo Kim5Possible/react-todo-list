@@ -9,7 +9,7 @@ describe("App component", () => {
   });
 
   it("adds a new item to the list", async () => {
-    const { getByRole, getByText, getAllByRole, queryByRole } = render(<App />);
+    const { getByRole, getByText, getAllByRole } = render(<App />);
     const input = getByRole("textbox");
     const addButton = getByRole("button", { name: "Add" });
     const itemsContent = ["Test 1", "Test 2", "Test 3"];
@@ -41,9 +41,7 @@ describe("App component", () => {
   });
 
   it("completes an item in the list", async () => {
-    const { getByRole, getByText, getAllByTestId, getByTestId } = render(
-      <App />
-    );
+    const { getByRole, getByText, getByTestId } = render(<App />);
     const input = getByRole("textbox");
     const addButton = getByRole("button", { name: "Add" });
     fireEvent.change(input, { target: { value: "New item" } });
